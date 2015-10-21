@@ -155,7 +155,7 @@ class Q(object):
     class Stanza:
         """Abstract away indentation and line-wrapping."""
 
-        def __init__(self, indent=0, width=80 - 7):
+        def __init__(self, indent=0, width=99999 - 7):
             self.chunks = [' '*indent]
             self.indent = indent
             self.column = indent
@@ -197,7 +197,7 @@ class Q(object):
         # TODO: Show a nicer repr for SRE.Match objects.
         # TODO: Show a nicer repr for big multiline strings.
         result = self.TEXT_REPR.repr(value)
-        if isinstance(value, self.BASESTRING_TYPES) and len(value) > 80:
+        if isinstance(value, self.BASESTRING_TYPES) and len(value) > 99999:
             # If the string is big, save it to a file for later examination.
             if isinstance(value,  self.TEXT_TYPES):
                 value = value.encode('utf-8')
